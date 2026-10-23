@@ -4,6 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Menú V. Carranza — Con Branko Grill House</title>
+  <meta name="description" content="Carta completa de la sucursal V. Carranza #2299 en Colima Norte de Con Branko Grill House: Tacos del asador, Taco Branko, Mega Burro, órdenes, tortas, bebidas y postres.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
@@ -11,336 +12,424 @@
 </head>
 <body>
 
-  <nav class="navbar scrolled" role="navigation" aria-label="Menú principal">
-    <a href="index.html" class="nav-logo">Con Branko</a>
-    <ul class="nav-links">
-      <li><a href="index.html">Inicio</a></li>
-      <li><a href="menu-san-fernando.html">Menú SF</a></li>
-      <li><a href="menu-carranza.html">Menú Carranza</a></li>
-      <li><a href="fotos.html">Fotos</a></li>
-      <li><a href="resenas.html">Reseñas</a></li>
-      <li><a href="contacto.html">Contacto</a></li>
-    </ul>
-    <button class="nav-hamburger" aria-label="Abrir menú" aria-expanded="false">
-      <span></span><span></span><span></span>
-    </button>
-  </nav>
+  <!-- Enlace de salto accesible (WCAG 2.4.1) -->
+  <a href="#main-content" class="skip-link">Saltar al contenido principal</a>
 
-  <main>
-    <header class="page-hero">
-      <div class="page-hero-bg" aria-hidden="true">🌮</div>
-      <div class="page-hero-overlay"></div>
+  <!-- ░░ Región HEADER (Banner) ░░ -->
+  <header role="banner">
+    <nav class="navbar scrolled" role="navigation" aria-label="Menú principal">
+      <a href="index.html" class="nav-logo">Con Branko</a>
+      <ul class="nav-links" id="nav-links">
+        <li><a href="index.html">Inicio</a></li>
+        <li><a href="menu-san-fernando.html">Menú SF</a></li>
+        <li><a href="menu-carranza.html" aria-current="page">Menú Carranza</a></li>
+        <li><a href="fotos.html">Fotos</a></li>
+        <li><a href="resenas.html">Reseñas</a></li>
+        <li><a href="contacto.html">Contacto</a></li>
+      </ul>
+      <button class="nav-hamburger" type="button" aria-label="Abrir menú de navegación" aria-expanded="false" aria-controls="nav-links">
+        <span></span><span></span><span></span>
+      </button>
+    </nav>
+  </header>
+
+  <!-- ░░ Región MAIN ░░ -->
+  <main id="main-content" role="main" tabindex="-1">
+    <section class="page-hero" aria-labelledby="page-title">
+      <img src="assets/arrachera-asador.jpg" alt="" class="page-hero-photo" aria-hidden="true">
+      <div class="page-hero-overlay" aria-hidden="true"></div>
       <div class="page-hero-content">
         <p class="page-hero-label">Sucursal V. Carranza · Colima Norte</p>
-        <h1>Menú</h1>
+        <h1 id="page-title">Menú V. Carranza</h1>
       </div>
-    </header>
+    </section>
 
     <div class="page-content">
 
-      <div class="menu-category fade-in">
-        <h2 class="menu-category-title">Tacos del Asador</h2>
+      <!-- Navegación rápida por categorías para lectores de pantalla y teclado -->
+      <nav class="menu-subnav fade-in" aria-label="Categorías del menú V. Carranza">
+        <p class="menu-subnav-title">Ir directamente a una categoría:</p>
+        <ul class="menu-subnav-list">
+          <li><a href="#cat-asador">Tacos del Asador</a></li>
+          <li><a href="#cat-ordenes">Órdenes</a></li>
+          <li><a href="#cat-plancha">Tacos de la Plancha y Quesadillas</a></li>
+          <li><a href="#cat-tortas">Tortas</a></li>
+          <li><a href="#cat-extras">Extras</a></li>
+          <li><a href="#cat-bebidas">Bebidas</a></li>
+          <li><a href="#cat-postres">Postres</a></li>
+        </ul>
+      </nav>
+
+      <!-- Platillos representativos con imágenes -->
+      <section class="menu-showcase-grid fade-in" aria-label="Especialidades representativas de sucursal V. Carranza">
+        <figure class="menu-showcase-item">
+          <img
+            src="assets/taco-branko.jpg"
+            alt="Taco Branko sobre tortilla hecha a mano con carne asada al carbón, queso fundido, chile güero y hueso de tuétano flameado"
+            class="menu-showcase-img"
+            width="400"
+            height="300"
+          >
+          <figcaption class="menu-showcase-caption">
+            <strong>Taco Branko ($89)</strong>
+            Tortilla a mano, chile güero, queso y carne bañada en tuétano.
+          </figcaption>
+        </figure>
+
+        <figure class="menu-showcase-item">
+          <img
+            src="assets/mega-burro.jpg"
+            alt="Mega Burro Asador partido por la mitad mostrando tortilla de harina gigante dorada, relleno de cortes al carbón, queso derretido y guacamole"
+            class="menu-showcase-img"
+            width="400"
+            height="300"
+            loading="lazy"
+          >
+          <figcaption class="menu-showcase-caption">
+            <strong>Mega Burro ($125 · Mixto $135)</strong>
+            Tortilla sobaquera gigante rellena de cortes a la brasa.
+          </figcaption>
+        </figure>
+
+        <figure class="menu-showcase-item">
+          <img
+            src="assets/tortillas-mano.jpg"
+            alt="Tortillas de maíz amarillo recién torteadas a mano inflándose sobre el comal caliente a la leña"
+            class="menu-showcase-img"
+            width="400"
+            height="300"
+            loading="lazy"
+          >
+          <figcaption class="menu-showcase-caption">
+            <strong>Tortillas Hechas a Mano</strong>
+            El sello de nuestros tacos del asador y quesadillas al comal.
+          </figcaption>
+        </figure>
+
+        <figure class="menu-showcase-item">
+          <img
+            src="assets/chiles-gueros.jpg"
+            alt="Chiles güeros tatemados al carbón rellenos de queso fundido acompañados de cebollitas cambray asadas y limones"
+            class="menu-showcase-img"
+            width="400"
+            height="300"
+            loading="lazy"
+          >
+          <figcaption class="menu-showcase-caption">
+            <strong>Chile Güero con Queso ($25)</strong>
+            Tatemado a la brasa de mezquite y relleno de queso fundido.
+          </figcaption>
+        </figure>
+      </section>
+
+      <section class="menu-category fade-in" id="cat-asador" aria-labelledby="title-asador">
+        <h2 id="title-asador" class="menu-category-title">Tacos del Asador</h2>
         <p class="menu-category-note">Con tortilla hecha a mano, tamaño generoso</p>
-        <div class="menu-item-list">
-          <div class="menu-item">
+        <ul class="menu-item-list" role="list">
+          <li class="menu-item">
             <div class="menu-item-info"><p class="menu-item-name">De Peinecillo</p></div>
             <span class="menu-item-price">$42</span>
-          </div>
-          <div class="menu-item">
+          </li>
+          <li class="menu-item">
             <div class="menu-item-info"><p class="menu-item-name">De Sirloin</p></div>
             <span class="menu-item-price">$42</span>
-          </div>
-          <div class="menu-item">
+          </li>
+          <li class="menu-item">
             <div class="menu-item-info"><p class="menu-item-name">De Arrachera Marinada</p></div>
             <span class="menu-item-price">$45</span>
-          </div>
-          <div class="menu-item">
+          </li>
+          <li class="menu-item">
             <div class="menu-item-info"><p class="menu-item-name">De Chistorra</p></div>
             <span class="menu-item-price">$40</span>
-          </div>
-          <div class="menu-item">
+          </li>
+          <li class="menu-item">
             <div class="menu-item-info">
               <p class="menu-item-name">De Tuétano</p>
               <p class="menu-item-desc">Y te damos el hueso para que tú le rasques</p>
             </div>
             <span class="menu-item-price">$49</span>
-          </div>
-          <div class="menu-item">
+          </li>
+          <li class="menu-item">
             <div class="menu-item-info"><p class="menu-item-name">De Salchicha para Asar</p></div>
             <span class="menu-item-price">$39</span>
-          </div>
-          <div class="menu-item">
+          </li>
+          <li class="menu-item">
             <div class="menu-item-info"><p class="menu-item-name">De Longaniza Asada</p></div>
             <span class="menu-item-price">$38</span>
-          </div>
-          <div class="menu-item">
+          </li>
+          <li class="menu-item">
             <div class="menu-item-info"><p class="menu-item-name">De Chorizo Verde o Rojo</p></div>
             <span class="menu-item-price">$39</span>
-          </div>
-          <div class="menu-item">
+          </li>
+          <li class="menu-item">
             <div class="menu-item-info"><p class="menu-item-name">De Tocinilla</p></div>
             <span class="menu-item-price">$39</span>
-          </div>
-          <div class="menu-item">
+          </li>
+          <li class="menu-item">
             <div class="menu-item-info"><p class="menu-item-name">Taco Chubby Pork</p></div>
             <span class="menu-item-price">$39</span>
-          </div>
-          <div class="menu-item menu-item-featured">
+          </li>
+          <li class="menu-item menu-item-featured">
             <div class="menu-item-info">
               <p class="menu-item-name">Taco Branko <span class="menu-tag">Especial</span></p>
               <p class="menu-item-desc">Tortilla, chile güero, queso, carne de tu elección y bañado en tuétano</p>
             </div>
             <span class="menu-item-price">$89</span>
-          </div>
-          <div class="menu-item">
-            <div class="menu-item-info"><p class="menu-item-name">Doradita c/puro Queso</p></div>
+          </li>
+          <li class="menu-item">
+            <div class="menu-item-info"><p class="menu-item-name">Doradita con puro Queso</p></div>
             <span class="menu-item-price">$28</span>
-          </div>
-          <div class="menu-item">
-            <div class="menu-item-info"><p class="menu-item-name">Doradita c/Queso y Carne</p></div>
+          </li>
+          <li class="menu-item">
+            <div class="menu-item-info"><p class="menu-item-name">Doradita con Queso y Carne</p></div>
             <span class="menu-item-price">$49</span>
-          </div>
-          <div class="menu-item">
+          </li>
+          <li class="menu-item">
             <div class="menu-item-info"><p class="menu-item-name">Doradita Sencilla</p></div>
             <span class="menu-item-price">$5</span>
-          </div>
-        </div>
-      </div>
+          </li>
+        </ul>
+      </section>
 
-      <div class="menu-category fade-in">
-        <h2 class="menu-category-title">Órdenes <span class="menu-tag">Nuevos</span></h2>
-        <div class="menu-item-list">
-          <div class="menu-item">
+      <section class="menu-category fade-in" id="cat-ordenes" aria-labelledby="title-ordenes">
+        <h2 id="title-ordenes" class="menu-category-title">Órdenes <span class="menu-tag">Nuevos</span></h2>
+        <ul class="menu-item-list" role="list">
+          <li class="menu-item">
             <div class="menu-item-info"><p class="menu-item-name">Orden de Peinecillo o Sirloin</p></div>
             <span class="menu-item-price">$195</span>
-          </div>
-          <div class="menu-item">
+          </li>
+          <li class="menu-item">
             <div class="menu-item-info"><p class="menu-item-name">Orden de Tocinilla</p></div>
             <span class="menu-item-price">$195</span>
-          </div>
-          <div class="menu-item">
+          </li>
+          <li class="menu-item">
             <div class="menu-item-info"><p class="menu-item-name">Orden de Arrachera</p></div>
             <span class="menu-item-price">$225</span>
-          </div>
-        </div>
-      </div>
+          </li>
+        </ul>
+      </section>
 
-      <div class="menu-category fade-in">
-        <h2 class="menu-category-title">Tacos de la Plancha</h2>
+      <section class="menu-category fade-in" id="cat-plancha" aria-labelledby="title-plancha">
+        <h2 id="title-plancha" class="menu-category-title">Tacos de la Plancha y Quesadillas</h2>
         <p class="menu-category-note">Con doble tortilla de barrio, grasositos</p>
-        <div class="menu-item-list">
-          <div class="menu-item">
+        <ul class="menu-item-list" role="list">
+          <li class="menu-item">
             <div class="menu-item-info">
               <p class="menu-item-name">De Cochinita</p>
-              <p class="menu-item-desc">C/tortilla a mano $35</p>
+              <p class="menu-item-desc">Con tortilla a mano $35</p>
             </div>
             <span class="menu-item-price">$22</span>
-          </div>
-          <div class="menu-item">
+          </li>
+          <li class="menu-item">
             <div class="menu-item-info">
               <p class="menu-item-name">De Adobada</p>
-              <p class="menu-item-desc">C/tortilla a mano $35</p>
+              <p class="menu-item-desc">Con tortilla a mano $35</p>
             </div>
             <span class="menu-item-price">$22</span>
-          </div>
-          <div class="menu-item">
+          </li>
+          <li class="menu-item">
             <div class="menu-item-info">
               <p class="menu-item-name">De Suadero</p>
-              <p class="menu-item-desc">C/tortilla a mano $35</p>
+              <p class="menu-item-desc">Con tortilla a mano $35</p>
             </div>
             <span class="menu-item-price">$22</span>
-          </div>
-          <div class="menu-item">
+          </li>
+          <li class="menu-item">
             <div class="menu-item-info">
               <p class="menu-item-name">Al Pastor</p>
-              <p class="menu-item-desc">C/tortilla a mano $35</p>
+              <p class="menu-item-desc">Con tortilla a mano $35</p>
             </div>
             <span class="menu-item-price">$22</span>
-          </div>
-          <div class="menu-item">
+          </li>
+          <li class="menu-item">
             <div class="menu-item-info">
               <p class="menu-item-name">Mega Burro</p>
               <p class="menu-item-desc">Con tortilla gigante · Mixto $135</p>
             </div>
             <span class="menu-item-price">$125</span>
-          </div>
-          <div class="menu-item">
+          </li>
+          <li class="menu-item">
             <div class="menu-item-info">
               <p class="menu-item-name">Quesadilla Sencilla</p>
               <p class="menu-item-desc">Con tortilla hecha a mano</p>
             </div>
             <span class="menu-item-price">$45</span>
-          </div>
-          <div class="menu-item">
-            <div class="menu-item-info"><p class="menu-item-name">Quesadilla c/Carne</p></div>
+          </li>
+          <li class="menu-item">
+            <div class="menu-item-info"><p class="menu-item-name">Quesadilla con Carne</p></div>
             <span class="menu-item-price">$68</span>
-          </div>
-          <div class="menu-item">
-            <div class="menu-item-info"><p class="menu-item-name">Quesadilla c/Champiñón</p></div>
+          </li>
+          <li class="menu-item">
+            <div class="menu-item-info"><p class="menu-item-name">Quesadilla con Champiñón</p></div>
             <span class="menu-item-price">$68</span>
-          </div>
-          <div class="menu-item">
+          </li>
+          <li class="menu-item">
             <div class="menu-item-info">
               <p class="menu-item-name">Quesadilla Gigante</p>
               <p class="menu-item-desc">Tortilla de harina</p>
             </div>
             <span class="menu-item-price">$75</span>
-          </div>
-          <div class="menu-item">
-            <div class="menu-item-info"><p class="menu-item-name">Quesadilla Gigante c/Carne</p></div>
+          </li>
+          <li class="menu-item">
+            <div class="menu-item-info"><p class="menu-item-name">Quesadilla Gigante con Carne</p></div>
             <span class="menu-item-price">$99</span>
-          </div>
-        </div>
-      </div>
+          </li>
+        </ul>
+      </section>
 
-      <div class="menu-category fade-in">
-        <h2 class="menu-category-title">Tortas</h2>
+      <section class="menu-category fade-in" id="cat-tortas" aria-labelledby="title-tortas">
+        <h2 id="title-tortas" class="menu-category-title">Tortas</h2>
         <p class="menu-category-note">Ingrediente extra $20</p>
-        <div class="menu-item-list">
-          <div class="menu-item">
+        <ul class="menu-item-list" role="list">
+          <li class="menu-item">
             <div class="menu-item-info"><p class="menu-item-name">Asada</p></div>
             <span class="menu-item-price">$90</span>
-          </div>
-          <div class="menu-item">
+          </li>
+          <li class="menu-item">
             <div class="menu-item-info"><p class="menu-item-name">Adobada</p></div>
             <span class="menu-item-price">$90</span>
-          </div>
-          <div class="menu-item">
+          </li>
+          <li class="menu-item">
             <div class="menu-item-info"><p class="menu-item-name">Longaniza</p></div>
             <span class="menu-item-price">$90</span>
-          </div>
-          <div class="menu-item">
+          </li>
+          <li class="menu-item">
             <div class="menu-item-info"><p class="menu-item-name">Suadero</p></div>
             <span class="menu-item-price">$90</span>
-          </div>
-          <div class="menu-item">
+          </li>
+          <li class="menu-item">
             <div class="menu-item-info"><p class="menu-item-name">¡De lo que quieras!</p></div>
             <span class="menu-item-price">$90</span>
-          </div>
-        </div>
-      </div>
+          </li>
+        </ul>
+      </section>
 
-      <div class="menu-category fade-in">
-        <h2 class="menu-category-title">Extras</h2>
-        <div class="menu-item-list">
-          <div class="menu-item">
+      <section class="menu-category fade-in" id="cat-extras" aria-labelledby="title-extras">
+        <h2 id="title-extras" class="menu-category-title">Extras</h2>
+        <ul class="menu-item-list" role="list">
+          <li class="menu-item">
             <div class="menu-item-info"><p class="menu-item-name">Orden de Cebollitas</p></div>
             <span class="menu-item-price">$35</span>
-          </div>
-          <div class="menu-item">
+          </li>
+          <li class="menu-item">
             <div class="menu-item-info">
               <p class="menu-item-name">Orden de Frijoles</p>
               <p class="menu-item-desc">Personal</p>
             </div>
             <span class="menu-item-price">$25</span>
-          </div>
-          <div class="menu-item">
+          </li>
+          <li class="menu-item">
             <div class="menu-item-info"><p class="menu-item-name">Chile Güero</p></div>
             <span class="menu-item-price">$15</span>
-          </div>
-          <div class="menu-item">
-            <div class="menu-item-info"><p class="menu-item-name">Chile Güero c/Queso</p></div>
+          </li>
+          <li class="menu-item">
+            <div class="menu-item-info"><p class="menu-item-name">Chile Güero con Queso</p></div>
             <span class="menu-item-price">$25</span>
-          </div>
-          <div class="menu-item">
+          </li>
+          <li class="menu-item">
             <div class="menu-item-info"><p class="menu-item-name">Orden de Guacamole</p></div>
             <span class="menu-item-price">$65</span>
-          </div>
-        </div>
-      </div>
+          </li>
+        </ul>
+      </section>
 
-      <div class="menu-category fade-in">
-        <h2 class="menu-category-title">Bebidas</h2>
-        <div class="menu-item-list">
-          <div class="menu-item">
+      <section class="menu-category fade-in" id="cat-bebidas" aria-labelledby="title-bebidas">
+        <h2 id="title-bebidas" class="menu-category-title">Bebidas</h2>
+        <ul class="menu-item-list" role="list">
+          <li class="menu-item">
             <div class="menu-item-info"><p class="menu-item-name">Refrescos</p></div>
             <span class="menu-item-price">$42</span>
-          </div>
-          <div class="menu-item">
+          </li>
+          <li class="menu-item">
             <div class="menu-item-info"><p class="menu-item-name">Cerveza Corona / Victoria</p></div>
             <span class="menu-item-price">$45</span>
-          </div>
-          <div class="menu-item">
+          </li>
+          <li class="menu-item">
             <div class="menu-item-info">
               <p class="menu-item-name">Cerveza Artesanal <span class="menu-tag">Locales</span></p>
-              <p class="menu-item-desc">Cerv. de Colima, Cerv. de la Costa, Odílica</p>
+              <p class="menu-item-desc">Cervecería de Colima, Cervecería de la Costa, Odílica</p>
             </div>
             <span class="menu-item-price">$65</span>
-          </div>
-          <div class="menu-item">
+          </li>
+          <li class="menu-item">
             <div class="menu-item-info"><p class="menu-item-name">Agua Fresca 1/2 Litro</p></div>
             <span class="menu-item-price">$29</span>
-          </div>
-          <div class="menu-item">
+          </li>
+          <li class="menu-item">
             <div class="menu-item-info"><p class="menu-item-name">Agua Fresca 1 Litro</p></div>
             <span class="menu-item-price">$45</span>
-          </div>
-          <div class="menu-item">
+          </li>
+          <li class="menu-item">
             <div class="menu-item-info">
               <p class="menu-item-name">Agua Fresca Sin Límite</p>
               <p class="menu-item-desc">Personal, no se puede compartir</p>
             </div>
             <span class="menu-item-price">$60</span>
-          </div>
-          <div class="menu-item">
+          </li>
+          <li class="menu-item">
             <div class="menu-item-info"><p class="menu-item-name">Agua de Coco</p></div>
             <span class="menu-item-price">$35</span>
-          </div>
-          <div class="menu-item">
+          </li>
+          <li class="menu-item">
             <div class="menu-item-info"><p class="menu-item-name">Agua Natural Embotellada</p></div>
             <span class="menu-item-price">$25</span>
-          </div>
-        </div>
-      </div>
+          </li>
+        </ul>
+      </section>
 
-      <div class="menu-category fade-in">
-        <h2 class="menu-category-title">Postres</h2>
-        <div class="menu-item-list">
-          <div class="menu-item">
+      <section class="menu-category fade-in" id="cat-postres" aria-labelledby="title-postres">
+        <h2 id="title-postres" class="menu-category-title">Postres</h2>
+        <ul class="menu-item-list" role="list">
+          <li class="menu-item">
             <div class="menu-item-info"><p class="menu-item-name">Jericalla</p></div>
             <span class="menu-item-price">$55</span>
-          </div>
-          <div class="menu-item">
+          </li>
+          <li class="menu-item">
             <div class="menu-item-info"><p class="menu-item-name">Pay de Queso, Limón o Nuez</p></div>
             <span class="menu-item-price">$55</span>
-          </div>
-          <div class="menu-item">
+          </li>
+          <li class="menu-item">
             <div class="menu-item-info"><p class="menu-item-name">Arroz con Leche</p></div>
             <span class="menu-item-price">$55</span>
-          </div>
-          <div class="menu-item">
+          </li>
+          <li class="menu-item">
             <div class="menu-item-info"><p class="menu-item-name">Chocoflan</p></div>
             <span class="menu-item-price">$60</span>
-          </div>
-          <div class="menu-item">
+          </li>
+          <li class="menu-item">
             <div class="menu-item-info"><p class="menu-item-name">Cheesecake</p></div>
             <span class="menu-item-price">$65</span>
-          </div>
-          <div class="menu-item">
+          </li>
+          <li class="menu-item">
             <div class="menu-item-info"><p class="menu-item-name">Fresas con Crema</p></div>
             <span class="menu-item-price">$69</span>
-          </div>
-        </div>
-      </div>
+          </li>
+        </ul>
+      </section>
 
-      <div class="menu-location-card fade-in">
-        <p class="menu-location-line"><strong>V. Carranza #2299</strong> · Colima, México</p>
+      <section class="menu-location-card fade-in" aria-label="Ubicación y teléfonos de la sucursal V. Carranza">
+        <p class="menu-location-line"><strong>V. Carranza #2299</strong> · Colima Norte, Colima, México</p>
         <p class="menu-location-line">Martes a Sábado · 6:00 PM – 11:30 PM</p>
-        <p class="menu-location-line">Servicio a domicilio</p>
-        <p class="menu-location-phones">312-317-2262 · 312-136-0792</p>
-      </div>
+        <p class="menu-location-line">Servicio a domicilio disponible</p>
+        <p class="menu-location-phones">
+          <a href="tel:+523123172262">312-317-2262</a>
+          <span aria-hidden="true"> · </span>
+          <a href="tel:+523121360792">312-136-0792</a>
+        </p>
+      </section>
 
     </div>
   </main>
 
-  <footer>
+  <!-- ░░ Footer ░░ -->
+  <footer role="contentinfo">
     <div class="footer-grid">
       <div class="footer-brand">
         <div class="logo">Con Branko</div>
         <p>Grill House &amp; taquería de asador en Colima. Tortillas hechas a mano y el famoso Taco Branko.</p>
       </div>
       <div class="footer-col">
-        <h4>Páginas</h4>
+        <h3>Páginas</h3>
         <ul>
           <li><a href="index.html">Inicio</a></li>
           <li><a href="fotos.html">Galería</a></li>
@@ -349,17 +438,17 @@
         </ul>
       </div>
       <div class="footer-col">
-        <h4>Menús</h4>
+        <h3>Menús</h3>
         <ul>
           <li><a href="menu-san-fernando.html">Terraza San Fernando</a></li>
-          <li><a href="menu-carranza.html">V. Carranza</a></li>
+          <li><a href="menu-carranza.html" aria-current="page">V. Carranza</a></li>
         </ul>
       </div>
       <div class="footer-col">
-        <h4>Horario</h4>
+        <h3>Horario</h3>
         <ul>
-          <li><a>Martes a Sábado</a></li>
-          <li><a>6:00 PM – 11:30 PM</a></li>
+          <li>Martes a Sábado</li>
+          <li>6:00 PM – 11:30 PM</li>
         </ul>
       </div>
     </div>

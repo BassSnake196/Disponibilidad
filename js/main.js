@@ -184,16 +184,30 @@
   const hamburger = document.querySelector('.nav-hamburger');
   const navLinks = document.querySelector('.nav-links');
   if (hamburger && navLinks) {
-    hamburger.addEventListener('click', () => {
-      const open = navLinks.classList.toggle('open');
-      hamburger.setAttribute('aria-expanded', open);
+    function setMenuOpen(open) {
+      navLinks.classList.toggle('open', open);
+      hamburger.setAttribute('aria-expanded', String(open));
+      hamburger.setAttribute('aria-label', open ? 'Cerrar menú de navegación' : 'Abrir menú de navegación');
       document.body.style.overflow = open ? 'hidden' : '';
+    }
+
+    hamburger.addEventListener('click', () => {
+      const open = !navLinks.classList.contains('open');
+      setMenuOpen(open);
     });
+
+    // Cerrar con tecla Escape para usuarios de teclado y VoiceOver
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && navLinks.classList.contains('open')) {
+        setMenuOpen(false);
+        hamburger.focus();
+      }
+    });
+
     // Cerrar al hacer click en un link
     navLinks.querySelectorAll('a').forEach(a => {
       a.addEventListener('click', () => {
-        navLinks.classList.remove('open');
-        document.body.style.overflow = '';
+        setMenuOpen(false);
       });
     });
   }
@@ -201,84 +215,61 @@
   /* ── Fade-in al hacer scroll ─────────────────────────── */
   const fadeElements = document.querySelectorAll('.fade-in');
   if (fadeElements.length) {
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('visible');
-          observer.unobserve(entry.target);
-        }
-      });
-    }, { threshold: 0.12 });
+    if (prefersReducedMotion) {
+      fadeElements.forEach(el => el.classList.add('visible'));
+    } else {
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('visible');
+            observer.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.12 });
 
-    fadeElements.forEach(el => observer.observe(el));
+      fadeElements.forEach(el => observer.observe(el));
+    }
   }
 
-  /* ── Active nav link ─────────────────────────────────── */
+  /* ── Active nav link (VoiceOver aria-current="page") ─── */
   const currentPage = window.location.pathname.split('/').pop() || 'index.html';
   document.querySelectorAll('.nav-links a').forEach(a => {
     const href = a.getAttribute('href');
     if (href === currentPage || (currentPage === '' && href === 'index.html')) {
       a.style.color = 'var(--c-gold)';
       a.style.opacity = '1';
+      a.setAttribute('aria-current', 'page');
+    } else {
+      a.removeAttribute('aria-current');
     }
   });
 
 
-  /* ── Booking Form Validation (Caso de Uso 2) ────────── */
-  const bookingForm = document.getElementById('form-reservaciones');
-  const bookingStatus = document.getElementById('booking-status');
+  /* ── Accessible Form Validation Helper ───────────────── */
+  function setupAccessibleForm(formId, statusId, fieldConfigs, getSuccessHtml) {
+    const form = document.getElementById(formId);
+    const statusBox = document.getElementById(statusId);
+    if (!form || !statusBox) return;
 
-  if (bookingForm && bookingStatus) {
-    const fields = [
-      {
-        input: document.getElementById('res-nombre'),
-        err: document.getElementById('err-res-nombre'),
-        validate: (v) => v.trim().length >= 3,
-        msg: 'Ingresa tu nombre completo (mínimo 3 caracteres).'
-      },
-      {
-        input: document.getElementById('res-email'),
-        err: document.getElementById('err-res-email'),
-        validate: (v) => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v.trim()),
-        msg: 'Ingresa un correo electrónico válido.'
-      },
-      {
-        input: document.getElementById('res-tel'),
-        err: document.getElementById('err-res-tel'),
-        validate: (v) => /^[0-9]{10}$/.test(v.trim().replace(/\D/g, '')),
-        msg: 'Ingresa un teléfono válido de 10 dígitos.'
-      },
-      {
-        input: document.getElementById('res-sucursal'),
-        err: document.getElementById('err-res-sucursal'),
-        validate: (v) => Boolean(v && v !== ''),
-        msg: 'Selecciona una sucursal.'
-      },
-      {
-        input: document.getElementById('res-fecha'),
-        err: document.getElementById('err-res-fecha'),
-        validate: (v) => Boolean(v && v !== ''),
-        msg: 'Selecciona una fecha deseada.'
-      },
-      {
-        input: document.getElementById('res-personas'),
-        err: document.getElementById('err-res-personas'),
-        validate: (v) => Boolean(v && v !== ''),
-        msg: 'Selecciona el número de personas.'
-      }
-    ];
+    const fields = fieldConfigs.map(cfg => ({
+      input: document.getElementById(cfg.inputId),
+      err: document.getElementById(cfg.errId),
+      validate: cfg.validate,
+      msg: cfg.msg
+    }));
 
     fields.forEach(({ input, err }) => {
       if (!input || !err) return;
       const clear = () => {
         input.classList.remove('has-error');
+        input.setAttribute('aria-invalid', 'false');
         err.textContent = '';
       };
       input.addEventListener('input', clear);
       input.addEventListener('change', clear);
     });
 
-    bookingForm.addEventListener('submit', function (e) {
+    form.addEventListener('submit', function (e) {
       e.preventDefault();
       let hasErrors = false;
       let firstInvalid = null;
@@ -288,26 +279,114 @@
         if (!validate(input.value)) {
           hasErrors = true;
           input.classList.add('has-error');
+          input.setAttribute('aria-invalid', 'true');
           err.textContent = msg;
           if (!firstInvalid) firstInvalid = input;
         } else {
           input.classList.remove('has-error');
+          input.setAttribute('aria-invalid', 'false');
           err.textContent = '';
         }
       });
 
       if (hasErrors) {
-        bookingStatus.className = 'status-live-box error';
-        bookingStatus.textContent = 'Por favor corrige los campos señalados en rojo para continuar.';
+        statusBox.className = 'status-live-box error';
+        statusBox.textContent = 'Por favor corrige los campos señalados para continuar.';
         if (firstInvalid) firstInvalid.focus();
       } else {
-        const nombreVal = document.getElementById('res-nombre').value.trim();
-        bookingStatus.className = 'status-live-box success';
-        bookingStatus.innerHTML = '<strong>¡Gracias, ' + nombreVal + '!</strong> Tu reservación ha sido recibida con éxito. Nos comunicaremos contigo para confirmar.';
-        bookingForm.reset();
-        bookingStatus.focus();
+        statusBox.className = 'status-live-box success';
+        statusBox.innerHTML = getSuccessHtml();
+        form.reset();
+        fields.forEach(({ input }) => {
+          if (input) input.removeAttribute('aria-invalid');
+        });
+        statusBox.focus();
       }
     });
   }
+
+  /* ── Booking Form Validation (Caso de Uso 2 en index.html) ── */
+  setupAccessibleForm(
+    'form-reservaciones',
+    'booking-status',
+    [
+      {
+        inputId: 'res-nombre',
+        errId: 'err-res-nombre',
+        validate: (v) => v.trim().length >= 3,
+        msg: 'Ingresa tu nombre completo (mínimo 3 caracteres).'
+      },
+      {
+        inputId: 'res-email',
+        errId: 'err-res-email',
+        validate: (v) => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v.trim()),
+        msg: 'Ingresa un correo electrónico válido.'
+      },
+      {
+        inputId: 'res-tel',
+        errId: 'err-res-tel',
+        validate: (v) => /^[0-9]{10}$/.test(v.trim().replace(/\D/g, '')),
+        msg: 'Ingresa un teléfono válido de 10 dígitos.'
+      },
+      {
+        inputId: 'res-sucursal',
+        errId: 'err-res-sucursal',
+        validate: (v) => Boolean(v && v !== ''),
+        msg: 'Selecciona una sucursal.'
+      },
+      {
+        inputId: 'res-fecha',
+        errId: 'err-res-fecha',
+        validate: (v) => Boolean(v && v !== ''),
+        msg: 'Selecciona una fecha deseada.'
+      },
+      {
+        inputId: 'res-personas',
+        errId: 'err-res-personas',
+        validate: (v) => Boolean(v && v !== ''),
+        msg: 'Selecciona el número de personas.'
+      }
+    ],
+    () => {
+      const nombreVal = (document.getElementById('res-nombre')?.value || '').trim();
+      return '<strong>¡Gracias, ' + nombreVal + '!</strong> Tu reservación ha sido recibida con éxito. Nos comunicaremos contigo para confirmar.';
+    }
+  );
+
+  /* ── Contact Form Validation (en contacto.html) ────────── */
+  setupAccessibleForm(
+    'form-contacto',
+    'contact-status',
+    [
+      {
+        inputId: 'nombre',
+        errId: 'err-nombre',
+        validate: (v) => v.trim().length >= 3,
+        msg: 'Ingresa tu nombre completo (mínimo 3 caracteres).'
+      },
+      {
+        inputId: 'email',
+        errId: 'err-email',
+        validate: (v) => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v.trim()),
+        msg: 'Ingresa un correo electrónico válido.'
+      },
+      {
+        inputId: 'telefono',
+        errId: 'err-telefono',
+        validate: (v) => !v.trim() || /^[0-9]{10}$/.test(v.trim().replace(/\D/g, '')),
+        msg: 'Ingresa un teléfono válido de 10 dígitos.'
+      },
+      {
+        inputId: 'mensaje',
+        errId: 'err-mensaje',
+        validate: (v) => v.trim().length >= 5,
+        msg: 'Escribe tu mensaje o detalle de tu pedido (mínimo 5 caracteres).'
+      }
+    ],
+    () => {
+      const nombreVal = (document.getElementById('nombre')?.value || '').trim();
+      return '<strong>¡Gracias, ' + nombreVal + '!</strong> Hemos recibido tu mensaje y nos pondremos en contacto contigo a la brevedad.';
+    }
+  );
 
 })();

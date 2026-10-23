@@ -185,7 +185,7 @@ button { cursor: pointer; font-family: inherit; border: none; background: none; 
 }
 .hero-content.visible { opacity: 1; transform: translateY(0); }
 .hero-tagline {
-  color: --c-white;
+  color: var(--c-white);
   font-family: var(--f-sans);
   font-size: clamp(0.65rem, 1.2vw, 0.8rem);
   text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.7);
@@ -1044,15 +1044,163 @@ footer {
 /* ── Ajustes de Contraste Accesible (WCAG AAA) ─────────── */
 .hero-subtitle { color: #f0e8d8 !important; opacity: 0.95 !important; }
 .intro-text p { color: #f0e8d8 !important; opacity: 0.95 !important; }
-.stat-label { color: #dcd4c7 !important; opacity: 0.9 !important; }
+.intro-stats { list-style: none; }
+.stat-number { display: block; }
+.stat-label { display: block; color: #dcd4c7 !important; opacity: 0.9 !important; }
+.menu-card-desc { color: #f0e8d8 !important; opacity: 0.92 !important; }
 .location-address { color: #f0e8d8 !important; opacity: 0.95 !important; }
 .review-text { color: #faf8f3 !important; opacity: 1 !important; }
 .review-author { color: var(--c-gold) !important; }
 .footer-brand p { color: #dfd7c9 !important; opacity: 1 !important; }
+.footer-col ul li { color: #dfd7c9 !important; opacity: 1 !important; font-size: 0.85rem; }
 .footer-col ul a { color: #dfd7c9 !important; opacity: 1 !important; }
 .footer-bottom { color: #c5bbae !important; opacity: 1 !important; }
+.menu-item-list { list-style: none; }
+.menu-item-desc { color: #dcd4c7 !important; opacity: 0.9 !important; }
+.menu-category-note { color: #dcd4c7 !important; opacity: 0.9 !important; }
+.menu-location-line { color: #f0e8d8 !important; opacity: 0.95 !important; }
+.menu-location-phones a {
+  color: var(--c-gold);
+  text-decoration: underline;
+  text-underline-offset: 4px;
+}
+.menu-location-phones a:hover { color: var(--c-white); }
+.contact-branch p { color: #f0e8d8 !important; opacity: 0.95 !important; }
 .form-group input::placeholder,
 .form-group textarea::placeholder {
   color: #c5bbae !important;
   opacity: 1 !important;
+}
+.nav-links a[aria-current="page"] {
+  color: var(--c-gold);
+  opacity: 1;
+}
+.nav-links a[aria-current="page"]::after {
+  transform: scaleX(1);
+}
+
+/* ── Fotos representativas en Sucursales, Menús y Contacto ── */
+.location-card-photo {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+.location-card .location-card-bg {
+  opacity: 0.38;
+}
+.location-card:hover .location-card-bg {
+  opacity: 0.48;
+  transform: scale(1.05);
+}
+.location-card-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, rgba(10, 9, 8, 0.94) 0%, rgba(10, 9, 8, 0.55) 55%, rgba(10, 9, 8, 0.25) 100%);
+  pointer-events: none;
+}
+.page-hero-photo {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0.35;
+}
+
+/* ── Navegación rápida por categorías del menú (VoiceOver) ── */
+.menu-subnav {
+  margin-bottom: 48px;
+  padding: 20px 24px;
+  background: var(--c-carbon);
+  border: 1px solid rgba(201, 168, 76, 0.2);
+}
+.menu-subnav-title {
+  font-size: 0.72rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--c-gold);
+  margin-bottom: 12px;
+  font-weight: 600;
+}
+.menu-subnav-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  list-style: none;
+}
+.menu-subnav-list a {
+  display: inline-block;
+  padding: 8px 16px;
+  border: 1px solid rgba(201, 168, 76, 0.35);
+  color: var(--c-cream);
+  font-size: 0.78rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  transition: background var(--transition), color var(--transition), border-color var(--transition);
+}
+.menu-subnav-list a:hover,
+.menu-subnav-list a:focus-visible {
+  background: var(--c-gold);
+  color: var(--c-black);
+  border-color: var(--c-gold);
+}
+
+/* ── Galería visual en páginas de menú y contacto ────────── */
+.menu-showcase-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 20px;
+  margin-bottom: 56px;
+}
+.menu-showcase-item {
+  background: var(--c-carbon);
+  border: 1px solid rgba(201, 168, 76, 0.18);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+.menu-showcase-img {
+  width: 100%;
+  aspect-ratio: 4/3;
+  object-fit: cover;
+  display: block;
+}
+.menu-showcase-caption {
+  padding: 14px 16px;
+  font-size: 0.85rem;
+  color: var(--c-cream);
+}
+.menu-showcase-caption strong {
+  display: block;
+  font-family: var(--f-serif);
+  font-size: 1.05rem;
+  color: var(--c-gold);
+  margin-bottom: 4px;
+}
+.contact-branch-img {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+  display: block;
+  margin-bottom: 16px;
+  border: 1px solid rgba(201, 168, 76, 0.2);
+}
+
+/* ── Preferencia de reducción de movimiento (WCAG 2.3.3) ─── */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+  .fade-in {
+    opacity: 1 !important;
+    transform: none !important;
+  }
+  .hero-content {
+    opacity: 1 !important;
+    transform: none !important;
+  }
 }

@@ -3,7 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Fotos — Con Branko Grill House</title>
+  <title>Fotos y Galería — Con Branko Grill House</title>
+  <meta name="description" content="Galería fotográfica de Con Branko Grill House en Colima: Taco Branko bañado en tuétano, cortes a las brasas de mezquite, tortillas hechas a mano y nuestras terrazas.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
@@ -12,160 +13,297 @@
     .photos-intro {
       text-align: center;
       padding: 60px clamp(20px, 6vw, 80px) 40px;
-      max-width: 600px;
+      max-width: 680px;
       margin: 0 auto;
     }
     .photos-intro p {
-      color: var(--c-cream);
-      opacity: 0.6;
-      font-size: 1rem;
-      line-height: 1.7;
+      color: #f0e8d8;
+      opacity: 0.95;
+      font-size: 1.02rem;
+      line-height: 1.75;
     }
     .photo-masonry {
       columns: 3;
-      column-gap: 10px;
+      column-gap: 16px;
       padding: 0 clamp(20px, 4vw, 60px) 80px;
+      max-width: 1400px;
+      margin: 0 auto;
     }
     .photo-item {
       break-inside: avoid;
-      margin-bottom: 10px;
+      margin-bottom: 16px;
       background: var(--c-dark);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: clamp(3rem, 6vw, 6rem);
       overflow: hidden;
       position: relative;
-      transition: transform 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-      cursor: pointer;
+      border: 1px solid rgba(201, 168, 76, 0.2);
+      transition: transform 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94), border-color 0.3s ease;
     }
-    .photo-item:hover { transform: scale(0.98); }
-    .photo-item.tall { min-height: 420px; }
-    .photo-item.medium { min-height: 280px; }
-    .photo-item.short { min-height: 200px; }
+    .photo-item:hover,
+    .photo-item:focus-within {
+      transform: translateY(-3px);
+      border-color: var(--c-gold);
+    }
+    .photo-item-img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      transition: transform 0.6s ease;
+    }
+    .photo-item.tall .photo-item-img { height: 420px; }
+    .photo-item.medium .photo-item-img { height: 300px; }
+    .photo-item.short .photo-item-img { height: 240px; }
+    .photo-item:hover .photo-item-img { transform: scale(1.04); }
     .photo-item-overlay {
       position: absolute;
-      inset: 0;
-      background: rgba(10,9,8,0.4);
+      inset: auto 0 0 0;
+      background: linear-gradient(to top, rgba(10, 9, 8, 0.94) 0%, rgba(10, 9, 8, 0.72) 65%, transparent 100%);
       display: flex;
-      align-items: flex-end;
-      padding: 20px;
-      opacity: 0;
-      transition: opacity 0.3s ease;
+      flex-direction: column;
+      justify-content: flex-end;
+      padding: 28px 20px 18px;
     }
-    .photo-item:hover .photo-item-overlay { opacity: 1; }
     .photo-caption {
-      font-size: 0.75rem;
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-      color: var(--c-cream);
+      font-family: var(--f-serif);
+      font-size: 1.1rem;
+      font-weight: 600;
+      color: var(--c-white);
+      margin-bottom: 4px;
     }
-    @media (max-width: 768px) {
+    .photo-subcaption {
+      font-size: 0.8rem;
+      color: #dfd7c9;
+      line-height: 1.45;
+    }
+    @media (max-width: 900px) {
       .photo-masonry { columns: 2; }
     }
-    @media (max-width: 480px) {
+    @media (max-width: 560px) {
       .photo-masonry { columns: 1; }
     }
   </style>
 </head>
 <body>
 
-  <nav class="navbar scrolled" role="navigation">
-    <a href="index.html" class="nav-logo">Con Branko</a>
-    <ul class="nav-links">
-      <li><a href="index.html">Inicio</a></li>
-      <li><a href="menu-san-fernando.html">Menú SF</a></li>
-      <li><a href="menu-carranza.html">Menú Carranza</a></li>
-      <li><a href="fotos.html">Fotos</a></li>
-      <li><a href="resenas.html">Reseñas</a></li>
-      <li><a href="contacto.html">Contacto</a></li>
-    </ul>
-    <button class="nav-hamburger" aria-label="Abrir menú" aria-expanded="false">
-      <span></span><span></span><span></span>
-    </button>
-  </nav>
+  <!-- Enlace de salto accesible (WCAG 2.4.1) -->
+  <a href="#main-content" class="skip-link">Saltar al contenido principal</a>
 
-  <main>
-    <header class="page-hero">
-      <div class="page-hero-bg" aria-hidden="true">📸</div>
-      <div class="page-hero-overlay"></div>
+  <!-- ░░ Región HEADER (Banner) ░░ -->
+  <header role="banner">
+    <nav class="navbar scrolled" role="navigation" aria-label="Menú principal">
+      <a href="index.html" class="nav-logo">Con Branko</a>
+      <ul class="nav-links" id="nav-links">
+        <li><a href="index.html">Inicio</a></li>
+        <li><a href="menu-san-fernando.html">Menú SF</a></li>
+        <li><a href="menu-carranza.html">Menú Carranza</a></li>
+        <li><a href="fotos.html" aria-current="page">Fotos</a></li>
+        <li><a href="resenas.html">Reseñas</a></li>
+        <li><a href="contacto.html">Contacto</a></li>
+      </ul>
+      <button class="nav-hamburger" type="button" aria-label="Abrir menú de navegación" aria-expanded="false" aria-controls="nav-links">
+        <span></span><span></span><span></span>
+      </button>
+    </nav>
+  </header>
+
+  <!-- ░░ Región MAIN ░░ -->
+  <main id="main-content" role="main" tabindex="-1">
+    <section class="page-hero" aria-labelledby="page-title">
+      <img src="assets/brasa-asador.jpg" alt="" class="page-hero-photo" aria-hidden="true">
+      <div class="page-hero-overlay" aria-hidden="true"></div>
       <div class="page-hero-content">
-        <p class="page-hero-label">Galería</p>
-        <h1>Fotos</h1>
+        <p class="page-hero-label">Galería Visual</p>
+        <h1 id="page-title">Fotos</h1>
       </div>
-    </header>
+    </section>
 
-    <div class="photos-intro fade-in">
-      <p>Del asador a tu mesa. Aquí un vistazo a nuestros tacos, la brasa y el ambiente de Con Branko.</p>
-    </div>
+    <section class="photos-intro fade-in" aria-label="Introducción a la galería">
+      <p>Del asador a tu mesa. Aquí un vistazo a nuestros cortes al carbón de mezquite, las tortillas hechas a mano y el ambiente de nuestras dos sucursales en Colima.</p>
+    </section>
 
-    <div class="photo-masonry">
-      <div class="photo-item tall fade-in" style="background: linear-gradient(135deg, #2a1f14, #1a1410);">
-        🌮
-        <div class="photo-item-overlay"><span class="photo-caption">Taco Branko</span></div>
-      </div>
-      <div class="photo-item short fade-in fade-in-delay-1" style="background: linear-gradient(135deg, #1a1714, #231f1b);">
-        🔥
-        <div class="photo-item-overlay"><span class="photo-caption">Brasa del asador</span></div>
-      </div>
-      <div class="photo-item medium fade-in fade-in-delay-2" style="background: linear-gradient(135deg, #201a12, #2a2218);">
-        🍺
-        <div class="photo-item-overlay"><span class="photo-caption">Cervezas &amp; micheladas</span></div>
-      </div>
-      <div class="photo-item medium fade-in" style="background: linear-gradient(135deg, #1e1a16, #2c2419);">
-        🌯
-        <div class="photo-item-overlay"><span class="photo-caption">Mega Burro</span></div>
-      </div>
-      <div class="photo-item tall fade-in fade-in-delay-1" style="background: linear-gradient(135deg, #1a1714, #0d0b09);">
-        🫓
-        <div class="photo-item-overlay"><span class="photo-caption">Tortillas hechas a mano</span></div>
-      </div>
-      <div class="photo-item short fade-in fade-in-delay-2" style="background: linear-gradient(135deg, #231f1b, #1a1714);">
-        🌶️
-        <div class="photo-item-overlay"><span class="photo-caption">Chiles güeros tatemados</span></div>
-      </div>
-      <div class="photo-item short fade-in" style="background: linear-gradient(135deg, #2c2218, #1e1a14);">
-        🧀
-        <div class="photo-item-overlay"><span class="photo-caption">Doraditas con queso</span></div>
-      </div>
-      <div class="photo-item medium fade-in fade-in-delay-1" style="background: linear-gradient(135deg, #1a1410, #231e18);">
-        🌿
-        <div class="photo-item-overlay"><span class="photo-caption">Terraza San Fernando</span></div>
-      </div>
-      <div class="photo-item tall fade-in fade-in-delay-2" style="background: linear-gradient(135deg, #201c16, #2a2219);">
-        🥂
-        <div class="photo-item-overlay"><span class="photo-caption">Buen ambiente</span></div>
-      </div>
-    </div>
+    <section class="photo-masonry" aria-labelledby="heading-galeria">
+      <h2 id="heading-galeria" class="sr-only">Catálogo fotográfico de platillos, brasas y sucursales de Con Branko</h2>
+
+      <figure class="photo-item tall fade-in">
+        <img
+          src="assets/taco-branko.jpg"
+          alt="Taco Branko especial servido sobre tortilla de maíz recién hecha, con tiras de carne asada al carbón, costra de queso fundido, chile güero tatemado y hueso de tuétano flameado al centro"
+          class="photo-item-img"
+          width="600"
+          height="840"
+        >
+        <figcaption class="photo-item-overlay">
+          <span class="photo-caption">Taco Branko</span>
+          <span class="photo-subcaption">Carne a las brasas, chile güero, queso fundido y tuétano flameado</span>
+        </figcaption>
+      </figure>
+
+      <figure class="photo-item short fade-in fade-in-delay-1">
+        <img
+          src="assets/brasa-asador.jpg"
+          alt="Brasas encendidas de carbón de mezquite al rojo vivo bajo la parrilla de hierro sellando cortes de res jugosos y huesos de tuétano"
+          class="photo-item-img"
+          width="600"
+          height="480"
+          loading="lazy"
+        >
+        <figcaption class="photo-item-overlay">
+          <span class="photo-caption">Brasa del Asador</span>
+          <span class="photo-subcaption">Fuego vivo de carbón de mezquite natural</span>
+        </figcaption>
+      </figure>
+
+      <figure class="photo-item medium fade-in fade-in-delay-2">
+        <img
+          src="assets/cervezas-micheladas.jpg"
+          alt="Tarro escarchado con chile y sal de michelada tradicional con rodaja de limón acompañado de dos cervezas artesanales oscuras bien frías sobre mesa de madera"
+          class="photo-item-img"
+          width="600"
+          height="600"
+          loading="lazy"
+        >
+        <figcaption class="photo-item-overlay">
+          <span class="photo-caption">Cervezas &amp; Micheladas</span>
+          <span class="photo-subcaption">Micheladas escarchadas y cerveza artesanal de Colima</span>
+        </figcaption>
+      </figure>
+
+      <figure class="photo-item medium fade-in">
+        <img
+          src="assets/mega-burro.jpg"
+          alt="Mega Burro Asador partido por la mitad mostrando tortilla de harina gigante dorada a la parrilla, relleno abundante de arrachera y sirloin al carbón, queso derretido, guacamole y aderezo chipotle"
+          class="photo-item-img"
+          width="600"
+          height="600"
+          loading="lazy"
+        >
+        <figcaption class="photo-item-overlay">
+          <span class="photo-caption">Mega Burro Asador</span>
+          <span class="photo-subcaption">Tortilla sobaquera gigante con cortes mixtos al fuego</span>
+        </figcaption>
+      </figure>
+
+      <figure class="photo-item tall fade-in fade-in-delay-1">
+        <img
+          src="assets/tortillas-mano.jpg"
+          alt="Tortillas de maíz amarillo recién torteadas a mano inflándose sobre un comal caliente a la leña, junto a un tortillero artesanal con servilleta de tela"
+          class="photo-item-img"
+          width="600"
+          height="840"
+          loading="lazy"
+        >
+        <figcaption class="photo-item-overlay">
+          <span class="photo-caption">Tortillas Hechas a Mano</span>
+          <span class="photo-subcaption">Maíz nixtamalizado recién salido del comal</span>
+        </figcaption>
+      </figure>
+
+      <figure class="photo-item short fade-in fade-in-delay-2">
+        <img
+          src="assets/chiles-gueros.jpg"
+          alt="Chiles güeros tatemados al carbón rellenos de queso fundido, servidos en plato de piedra volcánica con cebollitas cambray asadas y limones frescos"
+          class="photo-item-img"
+          width="600"
+          height="480"
+          loading="lazy"
+        >
+        <figcaption class="photo-item-overlay">
+          <span class="photo-caption">Chiles Güeros Tatemados</span>
+          <span class="photo-subcaption">Asados a la brasa y rellenos de queso gratinado</span>
+        </figcaption>
+      </figure>
+
+      <figure class="photo-item short fade-in">
+        <img
+          src="assets/doraditas-queso.jpg"
+          alt="Doraditas crujientes de maíz al carbón cubiertas con costra dorada de queso fundido, cubos de carne asada, cilantro fresco y salsa de molcajete"
+          class="photo-item-img"
+          width="600"
+          height="480"
+          loading="lazy"
+        >
+        <figcaption class="photo-item-overlay">
+          <span class="photo-caption">Doraditas con Queso y Carne</span>
+          <span class="photo-subcaption">Tostadas al carbón con costra de queso derretido</span>
+        </figcaption>
+      </figure>
+
+      <figure class="photo-item medium fade-in fade-in-delay-1">
+        <img
+          src="assets/terraza-restaurante.jpg"
+          alt="Terraza San Fernando al anochecer con series de luces cálidas bajo pérgola de madera, mesas con velas rodeadas de vegetación tropical y asador encendido al fondo"
+          class="photo-item-img"
+          width="600"
+          height="600"
+          loading="lazy"
+        >
+        <figcaption class="photo-item-overlay">
+          <span class="photo-caption">Terraza San Fernando</span>
+          <span class="photo-subcaption">Ambiente al aire libre con parrilla a la vista</span>
+        </figcaption>
+      </figure>
+
+      <figure class="photo-item tall fade-in fade-in-delay-2">
+        <img
+          src="assets/ambiente-carranza.jpg"
+          alt="Comensales brindando y compartiendo tablas de tacos a las brasas en el salón de ladrillo y madera con iluminación cálida de la sucursal Venustiano Carranza"
+          class="photo-item-img"
+          width="600"
+          height="840"
+          loading="lazy"
+        >
+        <figcaption class="photo-item-overlay">
+          <span class="photo-caption">Buen Ambiente en V. Carranza</span>
+          <span class="photo-subcaption">Noches de asador, amigos y familia en Colima Norte</span>
+        </figcaption>
+      </figure>
+
+      <figure class="photo-item short fade-in">
+        <img
+          src="assets/arrachera-asador.jpg"
+          alt="Platón de arrachera marinada al mezquite servida en sartén de hierro fundido con cebollitas cambray asadas, chiles toreados, cilantro y tortillas calientes"
+          class="photo-item-img"
+          width="600"
+          height="480"
+          loading="lazy"
+        >
+        <figcaption class="photo-item-overlay">
+          <span class="photo-caption">Arrachera Marinada al Mezquite</span>
+          <span class="photo-subcaption">Corte jugoso término medio con cebollitas cambray</span>
+        </figcaption>
+      </figure>
+
+    </section>
   </main>
 
-  <footer>
+  <!-- ░░ Footer ░░ -->
+  <footer role="contentinfo">
     <div class="footer-grid">
       <div class="footer-brand">
         <div class="logo">Con Branko</div>
         <p>Grill House &amp; taquería de asador en Colima. Tortillas hechas a mano y el famoso Taco Branko.</p>
       </div>
       <div class="footer-col">
-        <h4>Páginas</h4>
+        <h3>Páginas</h3>
         <ul>
           <li><a href="index.html">Inicio</a></li>
-          <li><a href="fotos.html">Galería</a></li>
+          <li><a href="fotos.html" aria-current="page">Galería</a></li>
           <li><a href="resenas.html">Reseñas</a></li>
           <li><a href="contacto.html">Contacto</a></li>
         </ul>
       </div>
       <div class="footer-col">
-        <h4>Menús</h4>
+        <h3>Menús</h3>
         <ul>
           <li><a href="menu-san-fernando.html">Terraza San Fernando</a></li>
           <li><a href="menu-carranza.html">V. Carranza</a></li>
         </ul>
       </div>
       <div class="footer-col">
-        <h4>Horario</h4>
+        <h3>Horario</h3>
         <ul>
-          <li><a>Martes a Sábado</a></li>
-          <li><a>6:00pm – 11:30pm</a></li>
+          <li>Martes a Sábado</li>
+          <li>6:00 PM – 11:30 PM</li>
         </ul>
       </div>
     </div>
