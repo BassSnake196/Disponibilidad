@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contacto — Con Branko Grill House</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+
+  <nav class="navbar scrolled" role="navigation">
+    <a href="index.html" class="nav-logo">Con Branko</a>
+    <ul class="nav-links">
+      <li><a href="index.html">Inicio</a></li>
+      <li><a href="menu-san-fernando.html">Menú SF</a></li>
+      <li><a href="menu-carranza.html">Menú Carranza</a></li>
+      <li><a href="fotos.html">Fotos</a></li>
+      <li><a href="resenas.html">Reseñas</a></li>
+      <li><a href="contacto.html">Contacto</a></li>
+    </ul>
+    <button class="nav-hamburger" aria-label="Abrir menú" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
+
+  <main>
+    <header class="page-hero">
+      <div class="page-hero-bg" aria-hidden="true">✉️</div>
+      <div class="page-hero-overlay"></div>
+      <div class="page-hero-content">
+        <p class="page-hero-label">Pedidos a domicilio y contacto</p>
+        <h1>Contáctanos</h1>
+      </div>
+    </header>
+
+    <div class="page-content">
+      <div class="contact-grid fade-in">
+
+        <form class="contact-form" onsubmit="handleSubmit(event)">
+          <div class="form-group">
+            <label for="nombre">Nombre completo</label>
+            <input type="text" id="nombre" name="nombre" placeholder="Tu nombre" required>
+          </div>
+          <div class="form-group">
+            <label for="email">Correo electrónico</label>
+            <input type="email" id="email" name="email" placeholder="tu@email.com" required>
+          </div>
+          <div class="form-group">
+            <label for="telefono">Teléfono</label>
+            <input type="tel" id="telefono" name="telefono" placeholder="312-000-0000">
+          </div>
+          <div class="form-group">
+            <label for="sucursal">Sucursal</label>
+            <select id="sucursal" name="sucursal">
+              <option value="" disabled selected>Selecciona una sucursal</option>
+              <option value="san-fernando">Terraza San Fernando</option>
+              <option value="carranza">V. Carranza</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="fecha">Fecha deseada</label>
+            <input type="date" id="fecha" name="fecha">
+          </div>
+          <div class="form-group">
+            <label for="personas">Número de personas</label>
+            <select id="personas" name="personas">
+              <option value="" disabled selected>¿Cuántos serán?</option>
+              <option value="1-2">1 – 2 personas</option>
+              <option value="3-4">3 – 4 personas</option>
+              <option value="5-8">5 – 8 personas</option>
+              <option value="9+">9 o más</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="mensaje">Mensaje o pedido</label>
+            <textarea id="mensaje" name="mensaje" placeholder="Pedido a domicilio, evento, dudas del menú..."></textarea>
+          </div>
+          <button type="submit" class="btn-primary" style="align-self:flex-start">
+            Enviar mensaje
+          </button>
+          <p id="form-success" style="display:none; color: var(--c-gold); font-size:0.85rem; margin-top:8px;">
+            ¡Gracias! Nos pondremos en contacto contigo a la brevedad.
+          </p>
+        </form>
+
+        <div class="contact-info fade-in fade-in-delay-1">
+          <div class="contact-branch">
+            <h3>Terraza San Fernando</h3>
+            <p>
+              Terraza San Fernando<br>
+              Colima, México<br><br>
+              <a href="tel:+523123172262">312-317-2262</a><br>
+              <a href="tel:+523121360792">312-136-0792</a><br><br>
+              Martes a Sábado<br>
+              6:00 pm – 11:30 pm
+            </p>
+          </div>
+          <div class="contact-branch">
+            <h3>V. Carranza</h3>
+            <p>
+              V. Carranza #2299, Colima Norte<br>
+              Colima, México<br><br>
+              <a href="tel:+523123172262">312-317-2262</a><br>
+              <a href="tel:+523121360792">312-136-0792</a><br><br>
+              Martes a Sábado<br>
+              6:00 pm – 11:30 pm
+            </p>
+          </div>
+          <div class="contact-branch">
+            <h3>En línea</h3>
+            <p>
+              <a href="https://conbranko.com">conbranko.com</a><br>
+              <a href="#">@conbranko</a> · Instagram<br>
+              <a href="#">Con Branko Grill House</a> · Facebook<br>
+              Servicio a domicilio disponible
+            </p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </main>
+
+  <footer>
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <div class="logo">Con Branko</div>
+        <p>Grill House &amp; taquería de asador en Colima. Tortillas hechas a mano y el famoso Taco Branko.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Páginas</h4>
+        <ul>
+          <li><a href="index.html">Inicio</a></li>
+          <li><a href="fotos.html">Galería</a></li>
+          <li><a href="resenas.html">Reseñas</a></li>
+          <li><a href="contacto.html">Contacto</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Menús</h4>
+        <ul>
+          <li><a href="menu-san-fernando.html">Terraza San Fernando</a></li>
+          <li><a href="menu-carranza.html">V. Carranza</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Horario</h4>
+        <ul><li><a>Mar–Sáb · 6:00pm–11:30pm</a></li></ul>
+      </div>
+    </div>
+    <div class="footer-bottom">&copy; 2026 Con Branko Grill House · Colima, México · Todos los derechos reservados.</div>
+  </footer>
+
+  <script src="js/main.js"></script>
+  <script>
+    function handleSubmit(e) {
+      e.preventDefault();
+      document.getElementById('form-success').style.display = 'block';
+      e.target.reset();
+    }
+  </script>
+</body>
+</html>

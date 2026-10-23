@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Reseñas — Con Branko Grill House</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/styles.css">
+  <style>
+    .rating-summary {
+      display: flex;
+      align-items: center;
+      gap: clamp(32px, 6vw, 80px);
+      padding: 60px clamp(20px, 6vw, 80px);
+      max-width: 1300px;
+      margin: 0 auto;
+      border-bottom: 1px solid rgba(201, 168, 76, 0.1);
+    }
+    .rating-big {
+      text-align: center;
+      min-width: 120px;
+    }
+    .rating-number {
+      font-family: var(--f-serif);
+      font-size: 5rem;
+      color: var(--c-gold);
+      line-height: 1;
+    }
+    .rating-stars-big { display: flex; gap: 6px; justify-content: center; margin: 8px 0; }
+    .rating-count { font-size: 0.75rem; color: var(--c-cream); opacity: 0.4; letter-spacing: 0.08em; }
+    .rating-bars { flex: 1; display: flex; flex-direction: column; gap: 10px; }
+    .rating-bar-row { display: flex; align-items: center; gap: 12px; }
+    .rating-bar-label { font-size: 0.8rem; color: var(--c-cream); opacity: 0.5; min-width: 20px; }
+    .rating-bar-track { flex: 1; height: 3px; background: var(--c-mid); border-radius: 2px; overflow: hidden; }
+    .rating-bar-fill { height: 100%; background: var(--c-gold); border-radius: 2px; }
+    .reviews-full-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+      gap: 24px;
+      padding: 60px clamp(20px, 6vw, 80px);
+      max-width: 1300px;
+      margin: 0 auto;
+    }
+    .review-card-full {
+      padding: 36px 32px;
+      border: 1px solid rgba(201, 168, 76, 0.1);
+      transition: border-color 0.4s ease;
+    }
+    .review-card-full:hover { border-color: rgba(201, 168, 76, 0.3); }
+    .review-header { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 16px; }
+    .reviewer-name { font-size: 0.85rem; color: var(--c-cream); font-weight: 500; }
+    .review-date { font-size: 0.7rem; color: var(--c-cream); opacity: 0.35; }
+    .review-source { font-size: 0.65rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--c-gold-dim); margin-top: 4px; }
+  </style>
+</head>
+<body>
+
+  <nav class="navbar scrolled" role="navigation">
+    <a href="index.html" class="nav-logo">Con Branko</a>
+    <ul class="nav-links">
+      <li><a href="index.html">Inicio</a></li>
+      <li><a href="menu-san-fernando.html">Menú SF</a></li>
+      <li><a href="menu-carranza.html">Menú Carranza</a></li>
+      <li><a href="fotos.html">Fotos</a></li>
+      <li><a href="resenas.html">Reseñas</a></li>
+      <li><a href="contacto.html">Contacto</a></li>
+    </ul>
+    <button class="nav-hamburger" aria-label="Abrir menú" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
+
+  <main>
+    <header class="page-hero">
+      <div class="page-hero-bg" aria-hidden="true">⭐</div>
+      <div class="page-hero-overlay"></div>
+      <div class="page-hero-content">
+        <p class="page-hero-label">Lo que dicen</p>
+        <h1>Reseñas</h1>
+      </div>
+    </header>
+
+    <div class="rating-summary fade-in">
+      <div class="rating-big">
+        <div class="rating-number">4.9</div>
+        <div class="rating-stars-big">
+          <span class="star">★</span><span class="star">★</span><span class="star">★</span>
+          <span class="star">★</span><span class="star">★</span>
+        </div>
+        <div class="rating-count">1,240+ reseñas</div>
+      </div>
+      <div class="rating-bars">
+        <div class="rating-bar-row">
+          <span class="rating-bar-label">5</span>
+          <div class="rating-bar-track"><div class="rating-bar-fill" style="width:88%"></div></div>
+          <span class="rating-bar-label" style="text-align:right">88%</span>
+        </div>
+        <div class="rating-bar-row">
+          <span class="rating-bar-label">4</span>
+          <div class="rating-bar-track"><div class="rating-bar-fill" style="width:9%"></div></div>
+          <span class="rating-bar-label" style="text-align:right">9%</span>
+        </div>
+        <div class="rating-bar-row">
+          <span class="rating-bar-label">3</span>
+          <div class="rating-bar-track"><div class="rating-bar-fill" style="width:2%"></div></div>
+          <span class="rating-bar-label" style="text-align:right">2%</span>
+        </div>
+        <div class="rating-bar-row">
+          <span class="rating-bar-label">2</span>
+          <div class="rating-bar-track"><div class="rating-bar-fill" style="width:1%"></div></div>
+          <span class="rating-bar-label" style="text-align:right">1%</span>
+        </div>
+        <div class="rating-bar-row">
+          <span class="rating-bar-label">1</span>
+          <div class="rating-bar-track"><div class="rating-bar-fill" style="width:0%"></div></div>
+          <span class="rating-bar-label" style="text-align:right">0%</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="reviews-full-grid">
+      <div class="review-card-full fade-in">
+        <div class="review-header">
+          <div><p class="reviewer-name">Carlos M.</p><p class="review-source">Google</p></div>
+          <span class="review-date">Abril 2026</span>
+        </div>
+        <div class="review-stars"><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span></div>
+        <p class="review-text">"El Taco Branko es una locura — la carne bañada en tuétano es otro nivel. Las tortillas hechas a mano hacen toda la diferencia. El mejor taco de Colima."</p>
+      </div>
+      <div class="review-card-full fade-in fade-in-delay-1">
+        <div class="review-header">
+          <div><p class="reviewer-name">Andrea L.</p><p class="review-source">Google</p></div>
+          <span class="review-date">Marzo 2026</span>
+        </div>
+        <div class="review-stars"><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span></div>
+        <p class="review-text">"Ambiente increíble y atención de diez. Los tacos del asador llegan calientitos y bien servidos. El de arrachera marinada es mi favorito, ya volvimos tres veces."</p>
+      </div>
+      <div class="review-card-full fade-in fade-in-delay-2">
+        <div class="review-header">
+          <div><p class="reviewer-name">Roberto P.</p><p class="review-source">Google</p></div>
+          <span class="review-date">Febrero 2026</span>
+        </div>
+        <div class="review-stars"><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span></div>
+        <p class="review-text">"Pedimos a domicilio desde la sucursal de Carranza y todo llegó perfecto. El Mega Burro alcanza para compartir y las doraditas están increíbles. Recomendadísimo."</p>
+      </div>
+      <div class="review-card-full fade-in">
+        <div class="review-header">
+          <div><p class="reviewer-name">Sofía R.</p><p class="review-source">TripAdvisor</p></div>
+          <span class="review-date">Febrero 2026</span>
+        </div>
+        <div class="review-stars"><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span></div>
+        <p class="review-text">"El taco de tuétano es un manjar, y que te den el hueso para rascarle es todo un detalle. La salsa y los chiles güeros tatemados están de campeonato."</p>
+      </div>
+      <div class="review-card-full fade-in fade-in-delay-1">
+        <div class="review-header">
+          <div><p class="reviewer-name">Miguel A.</p><p class="review-source">Google</p></div>
+          <span class="review-date">Enero 2026</span>
+        </div>
+        <div class="review-stars"><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span></div>
+        <p class="review-text">"Fuimos a la Terraza San Fernando y los tacos mañaneros nos encantaron. El dorado de cochinita está espectacular. Lugar bonito y servicio rápido."</p>
+      </div>
+      <div class="review-card-full fade-in fade-in-delay-2">
+        <div class="review-header">
+          <div><p class="reviewer-name">Laura G.</p><p class="review-source">Google</p></div>
+          <span class="review-date">Enero 2026</span>
+        </div>
+        <div class="review-stars"><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span></div>
+        <p class="review-text">"Las quesadillas gigantes son una barbaridad y la michelada bien preparada. Para cerrar, la jericalla casera. De lo mejor que hay para cenar en Colima."</p>
+      </div>
+    </div>
+  </main>
+
+  <footer>
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <div class="logo">Con Branko</div>
+        <p>Grill House &amp; taquería de asador en Colima. Tortillas hechas a mano y el famoso Taco Branko.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Páginas</h4>
+        <ul>
+          <li><a href="index.html">Inicio</a></li>
+          <li><a href="fotos.html">Galería</a></li>
+          <li><a href="resenas.html">Reseñas</a></li>
+          <li><a href="contacto.html">Contacto</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Menús</h4>
+        <ul>
+          <li><a href="menu-san-fernando.html">Terraza San Fernando</a></li>
+          <li><a href="menu-carranza.html">V. Carranza</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Horario</h4>
+        <ul><li><a>Mar–Sáb · 6:00pm–11:30pm</a></li></ul>
+      </div>
+    </div>
+    <div class="footer-bottom">&copy; 2026 Con Branko Grill House · Colima, México · Todos los derechos reservados.</div>
+  </footer>
+  <script src="js/main.js"></script>
+</body>
+</html>

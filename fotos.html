@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Fotos — Con Branko Grill House</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/styles.css">
+  <style>
+    .photos-intro {
+      text-align: center;
+      padding: 60px clamp(20px, 6vw, 80px) 40px;
+      max-width: 600px;
+      margin: 0 auto;
+    }
+    .photos-intro p {
+      color: var(--c-cream);
+      opacity: 0.6;
+      font-size: 1rem;
+      line-height: 1.7;
+    }
+    .photo-masonry {
+      columns: 3;
+      column-gap: 10px;
+      padding: 0 clamp(20px, 4vw, 60px) 80px;
+    }
+    .photo-item {
+      break-inside: avoid;
+      margin-bottom: 10px;
+      background: var(--c-dark);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: clamp(3rem, 6vw, 6rem);
+      overflow: hidden;
+      position: relative;
+      transition: transform 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+      cursor: pointer;
+    }
+    .photo-item:hover { transform: scale(0.98); }
+    .photo-item.tall { min-height: 420px; }
+    .photo-item.medium { min-height: 280px; }
+    .photo-item.short { min-height: 200px; }
+    .photo-item-overlay {
+      position: absolute;
+      inset: 0;
+      background: rgba(10,9,8,0.4);
+      display: flex;
+      align-items: flex-end;
+      padding: 20px;
+      opacity: 0;
+      transition: opacity 0.3s ease;
+    }
+    .photo-item:hover .photo-item-overlay { opacity: 1; }
+    .photo-caption {
+      font-size: 0.75rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--c-cream);
+    }
+    @media (max-width: 768px) {
+      .photo-masonry { columns: 2; }
+    }
+    @media (max-width: 480px) {
+      .photo-masonry { columns: 1; }
+    }
+  </style>
+</head>
+<body>
+
+  <nav class="navbar scrolled" role="navigation">
+    <a href="index.html" class="nav-logo">Con Branko</a>
+    <ul class="nav-links">
+      <li><a href="index.html">Inicio</a></li>
+      <li><a href="menu-san-fernando.html">Menú SF</a></li>
+      <li><a href="menu-carranza.html">Menú Carranza</a></li>
+      <li><a href="fotos.html">Fotos</a></li>
+      <li><a href="resenas.html">Reseñas</a></li>
+      <li><a href="contacto.html">Contacto</a></li>
+    </ul>
+    <button class="nav-hamburger" aria-label="Abrir menú" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
+
+  <main>
+    <header class="page-hero">
+      <div class="page-hero-bg" aria-hidden="true">📸</div>
+      <div class="page-hero-overlay"></div>
+      <div class="page-hero-content">
+        <p class="page-hero-label">Galería</p>
+        <h1>Fotos</h1>
+      </div>
+    </header>
+
+    <div class="photos-intro fade-in">
+      <p>Del asador a tu mesa. Aquí un vistazo a nuestros tacos, la brasa y el ambiente de Con Branko.</p>
+    </div>
+
+    <div class="photo-masonry">
+      <div class="photo-item tall fade-in" style="background: linear-gradient(135deg, #2a1f14, #1a1410);">
+        🌮
+        <div class="photo-item-overlay"><span class="photo-caption">Taco Branko</span></div>
+      </div>
+      <div class="photo-item short fade-in fade-in-delay-1" style="background: linear-gradient(135deg, #1a1714, #231f1b);">
+        🔥
+        <div class="photo-item-overlay"><span class="photo-caption">Brasa del asador</span></div>
+      </div>
+      <div class="photo-item medium fade-in fade-in-delay-2" style="background: linear-gradient(135deg, #201a12, #2a2218);">
+        🍺
+        <div class="photo-item-overlay"><span class="photo-caption">Cervezas &amp; micheladas</span></div>
+      </div>
+      <div class="photo-item medium fade-in" style="background: linear-gradient(135deg, #1e1a16, #2c2419);">
+        🌯
+        <div class="photo-item-overlay"><span class="photo-caption">Mega Burro</span></div>
+      </div>
+      <div class="photo-item tall fade-in fade-in-delay-1" style="background: linear-gradient(135deg, #1a1714, #0d0b09);">
+        🫓
+        <div class="photo-item-overlay"><span class="photo-caption">Tortillas hechas a mano</span></div>
+      </div>
+      <div class="photo-item short fade-in fade-in-delay-2" style="background: linear-gradient(135deg, #231f1b, #1a1714);">
+        🌶️
+        <div class="photo-item-overlay"><span class="photo-caption">Chiles güeros tatemados</span></div>
+      </div>
+      <div class="photo-item short fade-in" style="background: linear-gradient(135deg, #2c2218, #1e1a14);">
+        🧀
+        <div class="photo-item-overlay"><span class="photo-caption">Doraditas con queso</span></div>
+      </div>
+      <div class="photo-item medium fade-in fade-in-delay-1" style="background: linear-gradient(135deg, #1a1410, #231e18);">
+        🌿
+        <div class="photo-item-overlay"><span class="photo-caption">Terraza San Fernando</span></div>
+      </div>
+      <div class="photo-item tall fade-in fade-in-delay-2" style="background: linear-gradient(135deg, #201c16, #2a2219);">
+        🥂
+        <div class="photo-item-overlay"><span class="photo-caption">Buen ambiente</span></div>
+      </div>
+    </div>
+  </main>
+
+  <footer>
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <div class="logo">Con Branko</div>
+        <p>Grill House &amp; taquería de asador en Colima. Tortillas hechas a mano y el famoso Taco Branko.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Páginas</h4>
+        <ul>
+          <li><a href="index.html">Inicio</a></li>
+          <li><a href="fotos.html">Galería</a></li>
+          <li><a href="resenas.html">Reseñas</a></li>
+          <li><a href="contacto.html">Contacto</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Menús</h4>
+        <ul>
+          <li><a href="menu-san-fernando.html">Terraza San Fernando</a></li>
+          <li><a href="menu-carranza.html">V. Carranza</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Horario</h4>
+        <ul>
+          <li><a>Martes a Sábado</a></li>
+          <li><a>6:00pm – 11:30pm</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      &copy; 2026 Con Branko Grill House · Colima, México · Todos los derechos reservados.
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+</body>
+</html>

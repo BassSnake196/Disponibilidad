@@ -1,0 +1,13 @@
+# Logs & Reports
+*report*.json
+lighthouse-report.json
+accessibility-report.json
+*.log
+
+# Backups
+*.backup.*
+
+# OS files
+.DS_Store
+Thumbs.db
+desktop.ini

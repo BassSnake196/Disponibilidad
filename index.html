@@ -1,0 +1,497 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Con Branko Grill House — Asador en Colima</title>
+  <meta name="description" content="Con Branko Grill House en Colima. Tacos de asador, tortillas hechas a mano al carbón de mezquite, menú comparativo y reservaciones en línea.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+
+  <!-- Enlace de salto accesible (WCAG 2.4.1) -->
+  <a href="#main-content" class="skip-link">Saltar al contenido principal</a>
+
+  <!-- ░░ Región HEADER (Banner) ░░ -->
+  <header role="banner">
+    <!-- ░░ Loading Screen ░░ -->
+    <div id="loading-screen" aria-hidden="true">
+      <div class="loading-logo">Con Branko</div>
+      <div class="loading-bar-wrap">
+        <div class="loading-bar"></div>
+      </div>
+    </div>
+
+    <!-- ░░ Navbar ░░ -->
+    <nav class="navbar" role="navigation" aria-label="Menú principal">
+      <a href="index.html" class="nav-logo">Con Branko</a>
+      <ul class="nav-links">
+        <li><a href="index.html">Inicio</a></li>
+        <li><a href="menu-san-fernando.html">Menú SF</a></li>
+        <li><a href="menu-carranza.html">Menú Carranza</a></li>
+        <li><a href="fotos.html">Fotos</a></li>
+        <li><a href="resenas.html">Reseñas</a></li>
+        <li><a href="contacto.html">Contacto</a></li>
+      </ul>
+      <button class="nav-hamburger" aria-label="Abrir menú" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </nav>
+  </header>
+
+  <!-- ░░ Región MAIN ░░ -->
+  <main id="main-content" role="main" tabindex="-1">
+
+    <!-- ░░ HERO — Video en loop con autoplay + parallax ░░ -->
+    <!--
+      Video de fondo cinematográfico en loop continuo (autoplay, muted, loop).
+      La capa .hero-parallax se desplaza ±15px según el mouse / giroscopio.
+    -->
+    <section class="hero" aria-label="Inicio">
+
+      <!-- Capa parallax con el video de fondo -->
+      <div class="hero-parallax" data-parallax>
+        <video
+          id="hero-video"
+          class="hero-video"
+          src="assets/hero-steak.mp4"
+          autoplay
+          muted
+          playsinline
+          preload="auto"
+          aria-hidden="true"
+          tabindex="-1"
+        ></video>
+      </div>
+
+      <div class="hero-overlay" aria-hidden="true"></div>
+
+      <!-- Contenido encima del video -->
+      <div class="hero-content">
+        <p class="hero-tagline">Grill House · Colima</p>
+        <h1 class="hero-title">Con <em>Branko</em></h1>
+        <p class="hero-subtitle">El arte del fuego. Tacos de asador &amp; tortillas hechas a mano.</p>
+        <div class="hero-cta">
+          <a href="#caso-uso-1" class="btn-primary">Ver Menú</a>
+          <a href="#caso-uso-2" class="btn-outline">Reservar Mesa</a>
+        </div>
+      </div>
+
+      <!-- Indicador de scroll -->
+      <div class="scroll-hint" aria-hidden="true">
+        <span>Desliza</span>
+        <div class="scroll-arrow"></div>
+      </div>
+
+    </section>
+
+    <!-- ░░ Intro / Nosotros ░░ -->
+    <section class="section-intro">
+      <div class="intro-text fade-in">
+        <p class="label">Nuestra Filosofía</p>
+        <h2>Tacos de asador, tortillas hechas a mano</h2>
+        <p>
+          En Con Branko todo pasa por la brasa: carne de la mejor calidad,
+          tortilla hecha a mano y esa sazón que nos hizo famosos. Del clásico
+          taco de sirloin al legendario Taco Branko bañado en tuétano. Dos
+          sucursales en Colima, una sola obsesión por el sabor.
+        </p>
+      </div>
+      <div class="intro-stats">
+        <div class="stat-item fade-in fade-in-delay-1">
+          <div class="stat-number">2020</div>
+          <div class="stat-label">Sirviendo desde</div>
+        </div>
+        <div class="stat-item fade-in fade-in-delay-2">
+          <div class="stat-number">50+</div>
+          <div class="stat-label">Platillos en carta</div>
+        </div>
+        <div class="stat-item fade-in fade-in-delay-2">
+          <div class="stat-number">2</div>
+          <div class="stat-label">Sucursales</div>
+        </div>
+        <div class="stat-item fade-in fade-in-delay-3">
+          <div class="stat-number">4.9</div>
+          <div class="stat-label">Calificación Google</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ░░ CASO DE USO 1: Preview Menú, Imágenes y Tabla Comparativa ░░ -->
+    <section class="section-menu" id="caso-uso-1" aria-labelledby="heading-caso-1">
+      <div class="section-header fade-in">
+        <p class="label">Caso de Uso 1 · Nuestros Tacos</p>
+        <h2 id="heading-caso-1">Consulta y Comparativa del Menú</h2>
+      </div>
+
+      <div class="menu-grid">
+
+        <article class="menu-card fade-in fade-in-delay-1">
+          <div class="menu-card-bg">
+            <img src="assets/taco-branko.jpg" alt="Taco Branko sobre tortilla de maíz recién hecha con bistec asado, queso fundido y tuétano flameado" class="menu-card-photo" width="400" height="533" loading="lazy">
+          </div>
+          <div class="menu-card-overlay"></div>
+          <div class="menu-card-content">
+            <p class="menu-card-tag">La especialidad rockstar</p>
+            <h3 class="menu-card-name">Taco Branko</h3>
+            <p class="menu-card-desc">Doble tortilla, chile güero, queso y carne de tu elección, bañado en tuétano</p>
+            <p class="menu-card-price">$89</p>
+          </div>
+        </article>
+
+        <article class="menu-card fade-in fade-in-delay-2">
+          <div class="menu-card-bg">
+            <img src="assets/arrachera-asador.jpg" alt="Arrachera marinada al mezquite en tiras jugosas sobre sartén con cebollitas cambray asadas" class="menu-card-photo" width="400" height="533" loading="lazy">
+          </div>
+          <div class="menu-card-overlay"></div>
+          <div class="menu-card-content">
+            <p class="menu-card-tag">Del asador</p>
+            <h3 class="menu-card-name">Taco de Tuétano y Arrachera</h3>
+            <p class="menu-card-desc">Corte fino a las brasas y te damos el hueso con tuétano para raspar</p>
+            <p class="menu-card-price">$49</p>
+          </div>
+        </article>
+
+        <article class="menu-card fade-in fade-in-delay-3">
+          <div class="menu-card-bg">
+            <img src="assets/terraza-restaurante.jpg" alt="Terraza al aire libre de Con Branko con mesas de madera e iluminación cálida" class="menu-card-photo" width="400" height="533" loading="lazy">
+          </div>
+          <div class="menu-card-overlay"></div>
+          <div class="menu-card-content">
+            <p class="menu-card-tag">Para los hambrientos</p>
+            <h3 class="menu-card-name">Mega Burro Asador</h3>
+            <p class="menu-card-desc">Con tortilla gigante · También en versión Mixto con cortes al fuego</p>
+            <p class="menu-card-price">$125</p>
+          </div>
+        </article>
+
+      </div>
+
+      <!-- Links de la Carta -->
+      <div style="text-align:center; margin-top: 48px;" class="fade-in">
+        <a href="menu-san-fernando.html" class="btn-outline">Ver carta completa San Fernando &rarr;</a>
+        <a href="menu-carranza.html" class="btn-outline" style="margin-left: 12px;">Ver carta Carranza &rarr;</a>
+      </div>
+
+      <!-- ░░ TABLA CON DATOS TABULARES ░░ -->
+      <div class="menu-table-section fade-in" id="tabla-datos">
+        <div class="menu-table-header">
+          <h3 class="menu-table-title">Tabla Comparativa de Especialidades a las Brasas</h3>
+          <p class="menu-table-sub">Detalle de cortes, gramaje, acompañamiento, tiempo en parrilla y costo unitario.</p>
+        </div>
+
+        <div class="menu-table-container" tabindex="0" role="region" aria-label="Tabla comparativa de cortes y precios Con Branko">
+          <table class="menu-table">
+            <caption class="sr-only">Comparativa de cortes de carne, porciones, guarnición, tiempo de cocción y precio</caption>
+            <thead>
+              <tr>
+                <th scope="col">Especialidad</th>
+                <th scope="col">Corte o Base</th>
+                <th scope="col">Porción estimada</th>
+                <th scope="col">Guarnición incluida</th>
+                <th scope="col">Tiempo al carbón</th>
+                <th scope="col">Precio (MXN)</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <th scope="row">Taco Branko Especial</th>
+                <td>Arrachera Angus con Tuétano</td>
+                <td>1 pieza (180 g aprox.)</td>
+                <td>Chile güero, costra de queso y salsas</td>
+                <td>10 – 12 min</td>
+                <td class="table-price">$89</td>
+              </tr>
+              <tr>
+                <th scope="row">Platón de Arrachera</th>
+                <td>Arrachera marinada al mezquite</td>
+                <td>300 g de carne magra</td>
+                <td>Cebollitas cambray, chiles y charros</td>
+                <td>12 – 15 min</td>
+                <td class="table-price">$165</td>
+              </tr>
+              <tr>
+                <th scope="row">Taco de Sirloin</th>
+                <td>Sirloin Choice en cubos</td>
+                <td>1 pieza (120 g)</td>
+                <td>Tortilla a mano, cebolla y cilantro</td>
+                <td>8 – 10 min</td>
+                <td class="table-price">$45</td>
+              </tr>
+              <tr>
+                <th scope="row">Costilla Cargada</th>
+                <td>Costilla de res con hueso</td>
+                <td>400 g con hueso</td>
+                <td>Guacamole rústico y tortillas calientes</td>
+                <td>16 – 18 min</td>
+                <td class="table-price">$195</td>
+              </tr>
+              <tr>
+                <th scope="row">Mega Burro Mixto</th>
+                <td>Arrachera + Sirloin + Adobada</td>
+                <td>1 pieza gigante (350 g)</td>
+                <td>Tortilla sobaquera y aderezo chipotle</td>
+                <td>10 – 14 min</td>
+                <td class="table-price">$125</td>
+              </tr>
+            </tbody>
+            <tfoot>
+              <tr>
+                <th scope="row" colspan="5">Cortes preparados con carbón de mezquite natural. Precios con IVA.</th>
+                <td>Vigente 2026</td>
+              </tr>
+            </tfoot>
+          </table>
+        </div>
+      </div>
+
+    </section>
+
+    <!-- ░░ CASO DE USO 2: Reservación de Mesa y Solicitud de Pedidos (Short Form) ░░ -->
+    <section class="section-booking fade-in" id="caso-uso-2" aria-labelledby="heading-caso-2">
+      <div class="section-header">
+        <p class="label">Caso de Uso 2 · En Línea</p>
+        <h2 id="heading-caso-2">Reservación de Mesa y Pedidos</h2>
+        <p class="section-desc" style="max-width: 620px; margin: 0 auto; color: var(--c-cream);">
+          Aparta tu mesa en cualquiera de nuestras dos sucursales en Colima. Te confirmamos por teléfono o WhatsApp al instante.
+        </p>
+      </div>
+
+      <div class="booking-card">
+        <form id="form-reservaciones" class="contact-form" novalidate aria-describedby="booking-form-help">
+          <fieldset class="booking-fieldset">
+            <legend class="sr-only">Formulario de reservación y pedidos Con Branko</legend>
+            <p id="booking-form-help" class="form-instructions">
+              Los campos con asterisco (<span class="req-star" aria-hidden="true">*</span>) son obligatorios para coordinar tu visita.
+            </p>
+
+            <div id="booking-status" class="status-live-box" role="status" aria-live="polite"></div>
+
+            <div class="booking-grid">
+              
+              <div class="form-group">
+                <label for="res-nombre">
+                  Nombre completo <span class="req-star" aria-hidden="true">*</span>
+                  <span class="sr-only">(obligatorio)</span>
+                </label>
+                <input type="text" id="res-nombre" name="nombre" autocomplete="name" required aria-required="true" placeholder="Tu nombre y apellido" aria-describedby="hint-res-nombre err-res-nombre">
+                <span id="hint-res-nombre" class="field-hint">Nombre para la mesa</span>
+                <span id="err-res-nombre" class="field-err" aria-live="polite"></span>
+              </div>
+
+              <div class="form-group">
+                <label for="res-email">
+                  Correo electrónico <span class="req-star" aria-hidden="true">*</span>
+                  <span class="sr-only">(obligatorio)</span>
+                </label>
+                <input type="email" id="res-email" name="email" autocomplete="email" required aria-required="true" placeholder="tu@email.com" aria-describedby="hint-res-email err-res-email">
+                <span id="hint-res-email" class="field-hint">Enviaremos el recibo digital</span>
+                <span id="err-res-email" class="field-err" aria-live="polite"></span>
+              </div>
+
+              <div class="form-group">
+                <label for="res-tel">
+                  Teléfono <span class="req-star" aria-hidden="true">*</span>
+                  <span class="sr-only">(obligatorio)</span>
+                </label>
+                <input type="tel" id="res-tel" name="telefono" autocomplete="tel" required aria-required="true" pattern="[0-9]{10}" placeholder="312-000-0000" aria-describedby="hint-res-tel err-res-tel">
+                <span id="hint-res-tel" class="field-hint">10 dígitos para confirmación</span>
+                <span id="err-res-tel" class="field-err" aria-live="polite"></span>
+              </div>
+
+              <div class="form-group">
+                <label for="res-sucursal">
+                  Sucursal <span class="req-star" aria-hidden="true">*</span>
+                  <span class="sr-only">(obligatorio)</span>
+                </label>
+                <select id="res-sucursal" name="sucursal" required aria-required="true" aria-describedby="hint-res-sucursal err-res-sucursal">
+                  <option value="">Selecciona una sucursal</option>
+                  <option value="san-fernando">Terraza San Fernando (Colima)</option>
+                  <option value="carranza">V. Carranza (Colima Norte)</option>
+                </select>
+                <span id="hint-res-sucursal" class="field-hint">Lugar donde acudirás</span>
+                <span id="err-res-sucursal" class="field-err" aria-live="polite"></span>
+              </div>
+
+              <div class="form-group">
+                <label for="res-fecha">
+                  Fecha deseada <span class="req-star" aria-hidden="true">*</span>
+                  <span class="sr-only">(obligatorio)</span>
+                </label>
+                <input type="date" id="res-fecha" name="fecha" required aria-required="true" aria-describedby="hint-res-fecha err-res-fecha">
+                <span id="hint-res-fecha" class="field-hint">Martes a sábado desde 18:00 h</span>
+                <span id="err-res-fecha" class="field-err" aria-live="polite"></span>
+              </div>
+
+              <div class="form-group">
+                <label for="res-personas">
+                  Número de personas <span class="req-star" aria-hidden="true">*</span>
+                  <span class="sr-only">(obligatorio)</span>
+                </label>
+                <select id="res-personas" name="personas" required aria-required="true" aria-describedby="hint-res-personas err-res-personas">
+                  <option value="">¿Cuántos serán?</option>
+                  <option value="1-2">1 – 2 personas</option>
+                  <option value="3-4">3 – 4 personas</option>
+                  <option value="5-8">5 – 8 personas</option>
+                  <option value="9+">9 o más (Grupo / Evento)</option>
+                </select>
+                <span id="hint-res-personas" class="field-hint">Para elegir el tamaño de mesa</span>
+                <span id="err-res-personas" class="field-err" aria-live="polite"></span>
+              </div>
+
+            </div>
+
+            <div class="form-group" style="margin-top: 18px;">
+              <label for="res-mensaje">Mensaje o notas especiales (opcional)</label>
+              <textarea id="res-mensaje" name="mensaje" placeholder="Alergias, silla para niños, área preferida..." aria-describedby="hint-res-mensaje"></textarea>
+              <span id="hint-res-mensaje" class="field-hint">Opcional. Especifique detalles para su servicio.</span>
+            </div>
+
+            <div style="margin-top: 24px;">
+              <button type="submit" class="btn-primary" style="min-height: 48px; width: 100%;">
+                Confirmar reservación
+              </button>
+            </div>
+
+          </fieldset>
+        </form>
+      </div>
+    </section>
+
+    <!-- ░░ Sucursales ░░ -->
+    <section class="section-locations">
+      <div class="section-header fade-in">
+        <p class="label">Dónde encontrarnos</p>
+        <h2>Nuestras sucursales</h2>
+      </div>
+      <div class="locations-grid fade-in">
+
+        <article class="location-card">
+          <div class="location-card-bg" aria-hidden="true">🌿</div>
+          <div class="location-info">
+            <p class="location-tag">Sucursal</p>
+            <h3 class="location-name">Terraza San Fernando</h3>
+            <p class="location-address">
+              Terraza San Fernando<br>
+              Colima, México<br>
+              Mar–Sáb · 6:00pm–11:30pm
+            </p>
+            <a href="menu-san-fernando.html" class="location-link">
+              Ver menú &nbsp;→
+            </a>
+          </div>
+        </article>
+
+        <article class="location-card">
+          <div class="location-card-bg" aria-hidden="true">🔥</div>
+          <div class="location-info">
+            <p class="location-tag">Sucursal</p>
+            <h3 class="location-name">V. Carranza</h3>
+            <p class="location-address">
+              V. Carranza #2299, Colima Norte<br>
+              Colima, México<br>
+              Mar–Sáb · 6:00pm–11:30pm
+            </p>
+            <a href="menu-carranza.html" class="location-link">
+              Ver menú &nbsp;→
+            </a>
+          </div>
+        </article>
+
+      </div>
+    </section>
+
+    <!-- ░░ Reseñas preview ░░ -->
+    <section class="section-reviews">
+      <div class="section-header fade-in">
+        <p class="label">Lo que dicen</p>
+        <h2>Nuestros comensales</h2>
+      </div>
+      <div class="reviews-grid">
+
+        <div class="review-card fade-in fade-in-delay-1">
+          <div class="review-stars">
+            <span class="star">★</span><span class="star">★</span><span class="star">★</span>
+            <span class="star">★</span><span class="star">★</span>
+          </div>
+          <p class="review-text">
+            "El Taco Branko es una locura — la carne bañada en tuétano es otro nivel.
+            Las tortillas hechas a mano hacen toda la diferencia. El mejor taco de Colima."
+          </p>
+          <p class="review-author">— Carlos M. · Google</p>
+        </div>
+
+        <div class="review-card fade-in fade-in-delay-2">
+          <div class="review-stars">
+            <span class="star">★</span><span class="star">★</span><span class="star">★</span>
+            <span class="star">★</span><span class="star">★</span>
+          </div>
+          <p class="review-text">
+            "Ambiente increíble y la atención de diez. Los tacos del asador llegan
+            calientitos y bien servidos. El de arrachera marinada es mi favorito, ya volvimos tres veces."
+          </p>
+          <p class="review-author">— Andrea L. · Google</p>
+        </div>
+
+        <div class="review-card fade-in fade-in-delay-3">
+          <div class="review-stars">
+            <span class="star">★</span><span class="star">★</span><span class="star">★</span>
+            <span class="star">★</span><span class="star">★</span>
+          </div>
+          <p class="review-text">
+            "Pedimos a domicilio desde la sucursal de Carranza y todo llegó perfecto.
+            El Mega Burro alcanza para compartir y las doraditas están increíbles. Recomendadísimo."
+          </p>
+          <p class="review-author">— Roberto P. · Google</p>
+        </div>
+
+      </div>
+      <div style="text-align:center; margin-top: 48px;" class="fade-in">
+        <a href="resenas.html" class="btn-outline">Ver todas las reseñas &rarr;</a>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ░░ Footer ░░ -->
+  <footer role="contentinfo">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <div class="logo">Con Branko</div>
+        <p>Grill House &amp; taquería de asador en Colima. Tortillas hechas a mano, tacos del asador y el famoso Taco Branko.</p>
+      </div>
+      <div class="footer-col">
+        <h3>Menú</h3>
+        <ul>
+          <li><a href="menu-san-fernando.html">Terraza San Fernando</a></li>
+          <li><a href="menu-carranza.html">V. Carranza</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h3>Explorar</h3>
+        <ul>
+          <li><a href="fotos.html">Galería</a></li>
+          <li><a href="resenas.html">Reseñas</a></li>
+          <li><a href="contacto.html">Contacto</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h3>Contacto</h3>
+        <ul>
+          <li><a href="tel:+523123172262">312-317-2262</a></li>
+          <li><a href="tel:+523121360792">312-136-0792</a></li>
+          <li><a href="https://conbranko.com">conbranko.com</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      &copy; 2026 Con Branko Grill House · Colima, México · Todos los derechos reservados.
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+</body>
+</html>
